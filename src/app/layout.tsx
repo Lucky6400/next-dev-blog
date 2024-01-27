@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import NProgressProvider from "@/components/Common/NProgressProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className + " max-w-screen-xl mx-auto overflow-x-hidden w-full p-2"}>
+        <NProgressProvider>
+          {children}
+        </NProgressProvider>
+      </body>
     </html>
   );
 }
